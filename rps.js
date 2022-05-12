@@ -40,33 +40,30 @@ function playRound(playerSelection, computerSelection) {
     return "You both chose Scissors.  It's a tie!";
   } else {
     computerScore += 1;
-    return "You didn't choose a valid answer. You lose!";
+    return "You didn't choose a valid answer so you lose by default! \n(Double check your spelling!)";
   }
 }
 
-function game() {
+function playGame() {
   for (let i = 1; i < 6; i++) {
-    let playerSelectionInput = prompt("Round " + i + " of 5" + "\n\nPlease choose Rock, Paper, or Scissors and type it below:" , "");
+    let playerSelectionInput = prompt("Round " + i + " of 5" + "\n\nPlease choose Rock, Paper, or Scissors and type it below: " , "");
     let playerSelection = playerSelectionInput.toUpperCase();
     let computerSelection = computerPlay();
 
-    playRound(playerSelection, computerSelection);
-
-    alert("You chose " + playerSelection + ". The computer chose " + computerSelection);
-    alert(playRound(playerSelection, computerSelection));
-    if (i < 5) {
-      alert("The score is " + (playerScore / 2) + " to " + (computerScore / 2));
-    }
+    alert("You chose " + playerSelection + ". The computer chose " + computerSelection + "\n\n" + playRound(playerSelection, computerSelection));
     
+    if (i < 5) {
+      alert("The score is " + playerScore + " to " + computerScore);
+    }
   }
 }
 
-game();
+playGame();
 
 if (playerScore > computerScore) {
-  alert("After 5 rounds of play...You beat the computer with a final score of " + (playerScore / 2) + " to " + (computerScore / 2) + " !");
+  alert("After 5 rounds of play...You beat the computer with a final score of " + playerScore + " to " + computerScore + " !");
 } else if (playerScore < computerScore) {
-  alert("After 5 rounds of play...You lost to the computer with a final score of " + (playerScore / 2) + " to " + (computerScore / 2) + " !");
+  alert("After 5 rounds of play...You lost to the computer with a final score of " + playerScore + " to " + computerScore + " !");
 } else {
-  alert("After 5 rounds of play...You tied the computer with a final score of " + (playerScore / 2) + " to " + (computerScore / 2) + " !");
+  alert("After 5 rounds of play...You tied the computer with a final score of " + playerScore + " to " + computerScore + " !");
 }
