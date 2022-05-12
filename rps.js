@@ -46,7 +46,7 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
   for (let i = 1; i < 6; i++) {
-    let playerSelectionInput = prompt("Round " + i + "\n\nPlease choose Rock, Paper, or Scissors and type it below:" , "");
+    let playerSelectionInput = prompt("Round " + i + " of 5" + "\n\nPlease choose Rock, Paper, or Scissors and type it below:" , "");
     let playerSelection = playerSelectionInput.toUpperCase();
     let computerSelection = computerPlay();
 
@@ -54,16 +54,19 @@ function game() {
 
     alert("You chose " + playerSelection + ". The computer chose " + computerSelection);
     alert(playRound(playerSelection, computerSelection));
-    alert("The score is " + (playerScore / 2) + " to " + (computerScore / 2));
+    if (i < 5) {
+      alert("The score is " + (playerScore / 2) + " to " + (computerScore / 2));
+    }
+    
   }
 }
 
 game();
 
 if (playerScore > computerScore) {
-  alert("After 5 rounds of play...You beat the computer with a final score of " + (playerScore / 2) + " to " + (computerScore / 2) + "!");
+  alert("After 5 rounds of play...You beat the computer with a final score of " + (playerScore / 2) + " to " + (computerScore / 2) + " !");
 } else if (playerScore < computerScore) {
-  alert("After 5 rounds of play...You lost to the computer with a final score of " + (playerScore / 2) + " to " + (computerScore / 2) + "!");
+  alert("After 5 rounds of play...You lost to the computer with a final score of " + (playerScore / 2) + " to " + (computerScore / 2) + " !");
 } else {
-  alert("After 5 rounds of play...You tied the computer with a final score of " + (playerScore / 2) + " to " + (computerScore / 2) + "!");
+  alert("After 5 rounds of play...You tied the computer with a final score of " + (playerScore / 2) + " to " + (computerScore / 2) + " !");
 }
