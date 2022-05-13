@@ -54,16 +54,16 @@ function playGame() {
     
     if (i < 5) {
       alert("The score is " + playerScore + " to " + computerScore);
+    } else {
+      if (playerScore > computerScore) {
+        alert("After 5 rounds of play...You beat the computer with a final score of " + playerScore + " to " + computerScore + " !");
+      } else if (playerScore < computerScore) {
+        alert("After 5 rounds of play...You lost to the computer with a final score of " + playerScore + " to " + computerScore + " !");
+      } else {
+        alert("After 5 rounds of play...You tied the computer with a final score of " + playerScore + " to " + computerScore + " !");
+      }
     }
   }
 }
 
 playGame();
-
-if (playerScore > computerScore) {
-  alert("After 5 rounds of play...You beat the computer with a final score of " + playerScore + " to " + computerScore + " !");
-} else if (playerScore < computerScore) {
-  alert("After 5 rounds of play...You lost to the computer with a final score of " + playerScore + " to " + computerScore + " !");
-} else {
-  alert("After 5 rounds of play...You tied the computer with a final score of " + playerScore + " to " + computerScore + " !");
-}
