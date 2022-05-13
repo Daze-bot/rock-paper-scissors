@@ -15,7 +15,7 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === "ROCK" && computerSelection === "ROCK") {
-    return "You both chose Rock.  It's a tie!";
+    return "It's a tie!";
   } else if (playerSelection === "ROCK" && computerSelection === "PAPER") {
     computerScore += 1;
     return "Paper beats Rock.  You lose!";
@@ -26,7 +26,7 @@ function playRound(playerSelection, computerSelection) {
     playerScore += 1;
     return "Paper beats Rock.  You win!";
   } else if (playerSelection === "PAPER" && computerSelection === "PAPER") {
-    return "You both chose Paper.  It's a tie!";
+    return "It's a tie!";
   } else if (playerSelection === "PAPER" && computerSelection === "SCISSORS") {
     computerScore += 1;
     return "Scissors beats Paper. You lose!";
@@ -37,30 +37,36 @@ function playRound(playerSelection, computerSelection) {
     playerScore += 1;
     return "Scissors beats Paper. You win!";
   } else if (playerSelection === "SCISSORS" && computerSelection === "SCISSORS") {
-    return "You both chose Scissors.  It's a tie!";
+    return "It's a tie!";
   } else {
     computerScore += 1;
-    return "You didn't choose a valid answer so you lose by default! \n(Double check your spelling!)";
+    return "You didn't choose a valid answer so you lose by default!" +
+        "\n(Double check your spelling!)";
   }
 }
 
 function playGame() {
   for (let i = 1; i < 6; i++) {
-    let playerSelectionInput = prompt("Round " + i + " of 5" + "\n\nPlease choose Rock, Paper, or Scissors and type it below: " , "");
+    let playerSelectionInput = prompt("Round " + i + " of 5" +
+        "\n\nPlease choose Rock, Paper, or Scissors and type it below: " , "");
     let playerSelection = playerSelectionInput.toUpperCase();
     let computerSelection = computerPlay();
 
-    alert("You chose " + playerSelection + ". The computer chose " + computerSelection + "\n\n" + playRound(playerSelection, computerSelection));
+    alert("You chose " + playerSelection + "\nThe computer chose " +
+        computerSelection + "\n\n" + playRound(playerSelection, computerSelection));
     
     if (i < 5) {
       alert("The score is " + playerScore + " to " + computerScore);
     } else {
       if (playerScore > computerScore) {
-        alert("After 5 rounds of play...You beat the computer with a final score of " + playerScore + " to " + computerScore + " !");
+        alert("After 5 rounds of play...You beat the computer with a final score of:\n" +
+            playerScore + " to " + computerScore);
       } else if (playerScore < computerScore) {
-        alert("After 5 rounds of play...You lost to the computer with a final score of " + playerScore + " to " + computerScore + " !");
+        alert("After 5 rounds of play...You lost to the computer with a final score of:\n" +
+            playerScore + " to " + computerScore);
       } else {
-        alert("After 5 rounds of play...You tied the computer with a final score of " + playerScore + " to " + computerScore + " !");
+        alert("After 5 rounds of play...You tied the computer with a final score of:\n" +
+            playerScore + " to " + computerScore);
       }
     }
   }
