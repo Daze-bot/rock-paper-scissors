@@ -1,5 +1,16 @@
 let playerScore = 0;
 let computerScore = 0;
+let playerSelectionInput;
+
+const results = document.querySelector('.results');
+let buttons = document.querySelectorAll('.button');
+
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    playerSelectionInput = button.textContent;
+    console.log(playerSelectionInput);
+  });
+});
 
 function computerPlay() {
   let randomNum = Math.floor(Math.random()*3);
@@ -47,8 +58,9 @@ function playRound(playerSelection, computerSelection) {
 
 function playGame() {
   for (let i = 1; i < 6; i++) {
-    let playerSelectionInput = prompt("Round " + i + " of 5" +
+    alert("Round " + i + " of 5" +
         "\n\nPlease choose Rock, Paper, or Scissors and type it below: " , "");
+
     let playerSelection = playerSelectionInput.toUpperCase();
     let computerSelection = computerPlay();
 
@@ -71,5 +83,3 @@ function playGame() {
     }
   }
 }
-
-playGame();
