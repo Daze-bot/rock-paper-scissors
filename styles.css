@@ -1,14 +1,39 @@
-h1 {
+body {
   text-align: center;
+}
+
+.gameIntro {
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 32px;
+  font-size: 48px;
+}
+
+#gameStart {
+  font-size: 34px;
+}
+
+.chooseButton {
+  text-align: center;
+  margin: 32px 0px;
+  font-size: 24px;
+}
+
+.gameIntro {
+  margin-bottom: 96px;
 }
 
 .buttonsContainer {
-  text-align: center;
-  margin-top: 64px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
 }
 
 .button {
-  padding: 24px;
-  margin: 24px;
-  font-size: 36px;
+  padding: 18px;
+  font-size: 28px;
+  width: 150px;
 }
