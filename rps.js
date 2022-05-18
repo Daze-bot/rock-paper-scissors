@@ -1,20 +1,33 @@
 let playerScore = 0;
 let computerScore = 0;
-let playerSelectionInput = "";
 
 const results = document.querySelector('.results');
 let buttons = document.querySelectorAll('.button');
 
-buttons.forEach((press) => {
-  press.addEventListener('click', () => {
-    playerSelectionInput = press.textContent;
-    playGame(playerSelectionInput);
+function buttonSelection() {
+  buttons.forEach((press) => {
+    press.addEventListener('click', () => {
+      let playerSelectionInput = press.textContent;
+      let computerSelection = computerPlay();
+      let playerSelection = playerSelectionInput.toUpperCase();
+      alert("You chose " + playerSelection + "\nThe computer chose " +
+          computerSelection + "\n\n" + playRound(playerSelection, computerSelection));
+      if (playerScore === 5) {
+        alert("You beat the computer with a final score of:\n" + playerScore +
+            " to " + computerScore);
+      } else if (computerScore === 5) {
+        alert("You lost to the computer with a final score of:\n" + playerScore +
+            " to " + computerScore);
+      } else {
+        alert("The score is " + playerScore + " to " + computerScore);
+      }
+    });
   });
-});
+}
 
 function computerPlay() {
   let randomNum = Math.floor(Math.random()*3);
-  
+
   if (randomNum === 0) {
     return "ROCK";
   } else if (randomNum === 1) {
@@ -56,29 +69,4 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-function playGame(playerSelectionInput) {
-  for (let i = 1; i < 6; i++) {
-    //alert("Round " + i + " of 5" +
-        //"\n\nPlease choose Rock, Paper, or Scissors below: ");
-    let playerSelection = playerSelectionInput.toUpperCase();
-    let computerSelection = computerPlay();
-
-    alert("You chose " + playerSelection + "\nThe computer chose " +
-        computerSelection + "\n\n" + playRound(playerSelection, computerSelection));
-    
-    if (i < 5) {
-      alert("The score is " + playerScore + " to " + computerScore);
-    } else {
-      if (playerScore > computerScore) {
-        alert("After 5 rounds of play...You beat the computer with a final score of:\n" +
-            playerScore + " to " + computerScore);
-      } else if (playerScore < computerScore) {
-        alert("After 5 rounds of play...You lost to the computer with a final score of:\n" +
-            playerScore + " to " + computerScore);
-      } else {
-        alert("After 5 rounds of play...You tied the computer with a final score of:\n" +
-            playerScore + " to " + computerScore);
-      }
-    }
-  }
-}
+buttonSelection();
