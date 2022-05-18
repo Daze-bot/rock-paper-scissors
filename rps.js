@@ -38,6 +38,9 @@ function addStartText() {
 }
 
 function playGame() {
+  roundCount = 0;
+  playerScore = 0;
+  computerScore = 0;
   addStartText();
   addButtons();
   buttonSelection();
