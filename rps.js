@@ -34,7 +34,7 @@ function addButtons() {
 }
 
 function addStartText() {
-  choiceText.textContent = `Game Start. Make your pick below!`
+  choiceText.textContent = `Round 1 of 5. Make your pick below!`
 }
 
 function playGame() {
@@ -53,28 +53,36 @@ function buttonSelection() {
       let playerSelectionInput = press.textContent;
       let playerSelection = playerSelectionInput.toUpperCase();
       let computerSelection = computerPlay();
-      alert("You chose " + playerSelection + "\nThe computer chose " +
-          computerSelection + "\n\n" + playRound(playerSelection, computerSelection));
+      choiceText.textContent = "Round " + (roundCount + 2) + " of 5.  Make your next pick!"
+      if (roundCount <= 5) {
+        alert("You chose " + playerSelection + "\nThe computer chose " +
+            computerSelection + "\n\n" + playRound(playerSelection, computerSelection));
+      }
       if (roundCount === 5 && playerScore > computerScore) {
         alert("After 5 rounds of play...You beat the computer with a final score of:\n" +
             playerScore + " to " + computerScore);
         playerScore = 0;
-        computerScore = 0;
-        roundCount = 0;    
+        computerScore = 0;  
+        roundCount += 1;
+        choiceText.textContent = "Game Over! Press 'New Game' to play again";
       } else if (roundCount === 5 && playerScore < computerScore) {
         alert("After 5 rounds of play...You lost to the computer with a final score of:\n" +
             playerScore + " to " + computerScore);
         playerScore = 0;
         computerScore = 0;
-        roundCount = 0; 
+        roundCount += 1;
+        choiceText.textContent = "Game Over! Press 'New Game' to play again";
       } else if (roundCount === 5 && playerScore === computerScore) {
         alert("After 5 rounds of play...You tied the computer with a final score of:\n" +
             playerScore + " to " + computerScore);  
         playerScore = 0;
         computerScore = 0;
-        roundCount = 0; 
-      } else {
+        roundCount += 1;
+        choiceText.textContent = "Game Over! Press 'New Game' to play again";
+      } else if (roundCount < 5) {
         alert("The score is " + playerScore + " to " + computerScore);
+      } else if (roundCount > 5) {
+        choiceText.textContent = "Game Over! Press 'New Game' to play again";
       }
     });
   });
