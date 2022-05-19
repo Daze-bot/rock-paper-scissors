@@ -4,6 +4,7 @@ body {
 
 .gameIntro {
   text-align: center;
+  margin-bottom: 48px;
 }
 
 h1 {
@@ -15,14 +16,14 @@ h1 {
   font-size: 34px;
 }
 
+.gameInfo {
+  margin-bottom: 32px;
+}
+
 .chooseButton {
   text-align: center;
   margin: 32px 0px;
   font-size: 24px;
-}
-
-.gameIntro {
-  margin-bottom: 96px;
 }
 
 .buttonsContainer {
@@ -36,4 +37,25 @@ h1 {
   padding: 18px;
   font-size: 28px;
   width: 150px;
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+  font-size: 24px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+#outcome {
+  font-size: 32px;
+  margin-top: 16px;
+}
+
+#score, 
+#finalScore {
+  font-size: 32px;
+  margin-top: 56px;
 }
